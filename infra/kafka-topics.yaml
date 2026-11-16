@@ -1,0 +1,19 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: incoming-911-calls
+  labels:
+    strimzi.io/cluster: cad-kafka
+spec:
+  partitions: 3
+  replicas: 1
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: unit-dispatch-orders
+  labels:
+    strimzi.io/cluster: cad-kafka
+spec:
+  partitions: 3
+  replicas: 1

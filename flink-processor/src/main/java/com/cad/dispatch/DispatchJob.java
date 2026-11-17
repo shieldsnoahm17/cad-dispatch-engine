@@ -46,7 +46,7 @@ public class DispatchJob {
 
         callStream
                 .map(json -> mapper.readValue(json, CallEvent.class))
-                .keyBy(CallEvent::idempotencyKey)
+                .keyBy(CallEvent::getIdempotencyKey)
                 .process(new DeduplicationFn())
                 .map(mapper::writeValueAsString)
                 .sinkTo(sink);

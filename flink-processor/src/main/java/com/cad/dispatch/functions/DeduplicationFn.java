@@ -28,7 +28,7 @@ public class DeduplicationFn extends KeyedProcessFunction<String, CallEvent, Cal
             out.collect(value);
         } else {
             // Duplicate event detected (cellular retry/re-transmission); drop silently
-            System.out.println("Duplicate call suppressed: " + value.idempotencyKey());
+            System.out.println("Duplicate call suppressed: " + value.getIdempotencyKey());
         }
     }
 }

@@ -16,7 +16,7 @@ class DispatchLogicTest {
         KeyedOneInputStreamOperatorTestHarness<String, CallEvent, CallEvent> harness =
                 new KeyedOneInputStreamOperatorTestHarness<>(
                         new KeyedProcessOperator<>(dedupFunction),
-                        CallEvent::idempotencyKey,
+                        CallEvent::getIdempotencyKey,
                         org.apache.flink.api.common.typeinfo.BasicTypeInfo.STRING_TYPE_INFO
                 );
 
